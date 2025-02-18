@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 <?php
 $login = $_SESSION['login'];
 $password = $_SESSION['password'];
@@ -13,6 +6,7 @@ $passwordRepeat = $_SESSION['passwordRepeat'];
 $gender = $_SESSION['gender'];
 $favGames = $_SESSION['favGames'];
 $about = $_SESSION['about'];
+$city = $_SESSION['city'];
 
 ?>
 
@@ -28,8 +22,7 @@ $about = $_SESSION['about'];
                 <?php if ($password === $passwordRepeat): ?>
                     Пароль введено вірно
                 <?php else: ?>
-                    Паролі не співпадають, (перший <?= strlen($password) ?> символів,
-                    другий <?= strlen($passwordRepeat) ?> символів)
+                    Паролі не співпадають
                 <?php endif ?>
             </td>
         </tr>
@@ -38,6 +31,10 @@ $about = $_SESSION['about'];
             <td>
                 <label for=""><?= $gender ?></label>
             </td>
+        </tr>
+        <tr>
+            <td>Місто:</td>
+            <td><label for=""><?= $city ?></label></td>
         </tr>
         <tr>
             <td>Улюблені ігри:</td>
@@ -60,6 +57,3 @@ $about = $_SESSION['about'];
             <td><a href=<?= $_SERVER['HTTP_REFERER'] ?>>повернутися на попередню сторінку</a></td>
         </tr>
     </table>
-</body>
-
-</html>

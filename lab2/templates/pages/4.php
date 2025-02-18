@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div>4</div>
-  </body>
-</html>
+<div>
+  <form action="" method="post">
+    <table>
+      <tr>
+        <td>x:</td>
+        <td>y:</td>
+      </tr>
+      <tr>
+        <td>
+          <input type="number" name="x" />
+        </td>
+        <td>
+          <input type="number" name="y" />
+        </td>
+        <td>
+          <input type="submit" value="=" />
+        </td>
+    </table>
+  </form>
+
+</div>
