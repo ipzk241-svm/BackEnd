@@ -34,7 +34,7 @@ if (isset($_POST['cities'])) {
     $cities = $_POST['cities'];
     $cities = explode(' ', $cities);
     sort($cities);
-    $cities = implode(', ', $cities);
+    $cities = implode(' ', $cities);
 }
 // 1.3
 if (isset($_POST['path'])) {

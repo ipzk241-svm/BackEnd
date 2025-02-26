@@ -1,6 +1,6 @@
 
 <?php
-$login = $_SESSION['login'];
+$login = $_SESSION['login'] ?? "";
 $password = $_SESSION['password'];
 $passwordRepeat = $_SESSION['passwordRepeat'];
 $gender = $_SESSION['gender'];

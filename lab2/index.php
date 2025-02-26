@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     $_SESSION['gender'] = $_POST['gender'] ?? '';
     $_SESSION['favGames'] = $_POST['favGames'] ?? [];
     $_SESSION['about'] = $_POST['about'] ?? '';
+    $_SESSION['city'] = $_POST['city'] ?? '';
 
     $uploadDir = 'images/';
     $fileName = basename($_FILES['userPhoto']['name']);

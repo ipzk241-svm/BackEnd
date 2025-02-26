@@ -1,0 +1,10 @@
+apple
+banana
+cherry
+dragonfruit
+elephant
+falcon
+giraffe
+honeydew
+iguana
+jaguar
