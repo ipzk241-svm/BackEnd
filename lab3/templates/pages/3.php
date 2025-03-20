@@ -1,15 +1,13 @@
 <?php
 // 3.2
-$separator = ": ";
+$separator = "|";
 
 if (isset($_POST['submit']) && isset($_POST['name']) && isset($_POST['comment'])) {
     if (!empty($_POST['name']) && !empty($_POST['comment'])) {
         $name = $_POST['name'];
         $comment = $_POST['comment'];
-        $file = fopen('./files/comments.txt', 'a');
-        fwrite($file, $name . $separator);
-        fwrite($file, $comment . "\n");
-        fclose($file);
+        $comment = str_replace("\n", "<br>", $comment);
+        file_put_contents('./files/comments.txt', $name . $separator . $comment . "\n", FILE_APPEND);
     }
 }
 if (isset($_POST['clear'])) {
@@ -17,18 +15,10 @@ if (isset($_POST['clear'])) {
     fclose($file);
 }
 
-$file = fopen('./files/comments.txt', 'r');
+$fileName = './files/comments.txt';
 $comments = [];
-while (!feof($file)) {
-    $line = fgets($file);
-    if ($line) {
-        $doubleDotsSep = strpos($line, $separator);
-        $name = substr($line, 0, $doubleDotsSep);
-        $comment = substr($line, $doubleDotsSep + 1);
-        array_push($comments, [$name, $comment]);
-    }
-}
-
+if (file_exists($fileName))
+    $comments = file($fileName, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 // 3.2
 
@@ -145,9 +135,10 @@ if (isset($_POST['deleteFile']) && isset($_POST['fileName'])) {
             <th>Comment:</th>
         </tr>
         <?php foreach ($comments as $comment) : ?>
+            <?php list($name, $comText) = explode('|', $comment) ?>
             <tr>
-                <td><?= $comment[0] ?></td>
-                <td><?= $comment[1] ?></td>
+                <td><?= $name?></td>
+                <td><?= $comText ?></td>
             </tr>
         <?php endforeach ?>
         </tr>

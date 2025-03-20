@@ -19,6 +19,9 @@
         ?>
     </ul>
 </header>
+
+<body class="<?= $fontSize ?>">
+
 </body>
 
 </html>

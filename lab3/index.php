@@ -4,8 +4,13 @@ session_start();
 $directory = './templates/pages/';
 $pages = glob($directory . '*.php');
 
-include "templates/parts/header.php";
+$fontSize = $_COOKIE['fontSize'] ?? 'middle';
+if (isset($_GET['fs'])) {
+    $fontSize = $_GET['fs'];
+    setcookie('fontSize', $fontSize);
+}
 
+include "templates/parts/header.php";
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
